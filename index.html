@@ -15,7 +15,12 @@
   <meta property="og:title" content="Matchett Data Solutions | Data Cleanup, Automation &amp; Lead Lists">
   <meta property="og:description" content="Remote data cleanup, spreadsheet automation, lead lists, and everyday tech help for small businesses. Explained in plain language.">
   <meta property="og:url" content="https://matchettdata.com/">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://matchettdata.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Matchett Data Solutions: data cleanup, automation, and lead lists">
+  <meta name="twitter:image" content="https://matchettdata.com/og-image.png">
 
   <!-- Tiny inline favicon so browsers do not request a missing file -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070A0C'/%3E%3Crect x='9' y='9' width='14' height='14' rx='3' fill='%233DDC97'/%3E%3C/svg%3E">
@@ -72,7 +77,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-actions">
-          <a class="nav-email" href="mailto:c.match832@matchettdata.com">c.match832@matchettdata.com</a>
+          <a class="nav-phone" href="tel:+18324510492" aria-label="Call Matchett Data Solutions at 832-451-0492">832-451-0492</a>
           <a class="btn btn-primary btn-sm" href="#contact">Book a call</a>
         </div>
       </nav>
@@ -268,7 +273,7 @@
           </ul>
         </div>
 
-        <form class="card contact-form reveal" action="mailto:c.match832@matchettdata.com" method="post" enctype="text/plain">
+        <form class="card contact-form reveal" action="https://formspree.io/f/moedqlvp" method="POST">
           <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" required>
@@ -281,8 +286,9 @@
             <label for="message">What's going on?</label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <button class="btn btn-primary" type="submit">Send message</button>
-          <p class="form-note">This opens your email app with your message ready to send.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>

@@ -106,3 +106,48 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
 
   revealElements.forEach((element) => observer.observe(element));
 }
+
+
+/* --------------------------------------------------------------------------
+   3. CONTACT FORM (sends to Formspree without leaving the page)
+   -------------------------------------------------------------------------- */
+
+const contactForm = document.querySelector('.contact-form');
+const formStatus = contactForm.querySelector('.form-status');
+const submitButton = contactForm.querySelector('button[type="submit"]');
+
+// Shows a message under the button. Pass 'success' or 'error' to pick the color.
+function showFormStatus(type, message) {
+  formStatus.textContent = message;
+  formStatus.classList.toggle('is-success', type === 'success');
+  formStatus.classList.toggle('is-error', type === 'error');
+}
+
+contactForm.addEventListener('submit', async (event) => {
+  // Stop the browser from doing a normal page-reloading submit.
+  event.preventDefault();
+
+  // Disable the button so the message cannot be sent twice.
+  submitButton.disabled = true;
+  showFormStatus('', '');
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { Accept: 'application/json' }
+    });
+
+    if (response.ok) {
+      contactForm.reset();
+      showFormStatus('success', "Thanks! I'll get back to you within one business day.");
+    } else {
+      showFormStatus('error', 'Something went wrong. Please email c.match832@matchettdata.com or call 832-451-0492.');
+    }
+  } catch (error) {
+    // Network problem (offline, blocked request, and so on).
+    showFormStatus('error', 'Something went wrong. Please email c.match832@matchettdata.com or call 832-451-0492.');
+  } finally {
+    submitButton.disabled = false;
+  }
+});
